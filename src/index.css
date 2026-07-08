@@ -1,0 +1,206 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-fog-green: var(--fog-green);
+  --color-fog-red: var(--fog-red);
+  --color-fog-yellow: var(--fog-yellow);
+  --color-fog-accent: var(--fog-accent);
+  --color-fog-accent-light: var(--fog-accent-light);
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/*
+  ============================================================
+  FOGWALL THEME
+  Dark, mysterious fog/mist aesthetic with purple accents.
+  ============================================================
+*/
+
+:root {
+  --radius: 0.75rem;
+  --background: #0a0a0f;
+  --foreground: #e8e8f0;
+  --card: #1a1a2e;
+  --card-foreground: #e8e8f0;
+  --popover: #14141e;
+  --popover-foreground: #e8e8f0;
+  --primary: #6c5ce7;
+  --primary-foreground: #ffffff;
+  --secondary: #22223a;
+  --secondary-foreground: #e8e8f0;
+  --muted: #14141e;
+  --muted-foreground: #8888aa;
+  --accent: #6c5ce7;
+  --accent-foreground: #ffffff;
+  --destructive: #ff6b6b;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a44;
+  --input: #2a2a44;
+  --ring: #6c5ce7;
+  --chart-1: #6c5ce7;
+  --chart-2: #00d4aa;
+  --chart-3: #a78bfa;
+  --chart-4: #ffd93d;
+  --chart-5: #ff6b6b;
+  --sidebar: #14141e;
+  --sidebar-foreground: #e8e8f0;
+  --sidebar-primary: #6c5ce7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #22223a;
+  --sidebar-accent-foreground: #e8e8f0;
+  --sidebar-border: #2a2a44;
+  --sidebar-ring: #6c5ce7;
+  --fog-green: #00d4aa;
+  --fog-red: #ff6b6b;
+  --fog-yellow: #ffd93d;
+  --fog-accent: #6c5ce7;
+  --fog-accent-light: #a78bfa;
+}
+
+.dark {
+  --background: #0a0a0f;
+  --foreground: #e8e8f0;
+  --card: #1a1a2e;
+  --card-foreground: #e8e8f0;
+  --popover: #14141e;
+  --popover-foreground: #e8e8f0;
+  --primary: #6c5ce7;
+  --primary-foreground: #ffffff;
+  --secondary: #22223a;
+  --secondary-foreground: #e8e8f0;
+  --muted: #14141e;
+  --muted-foreground: #8888aa;
+  --accent: #6c5ce7;
+  --accent-foreground: #ffffff;
+  --destructive: #ff6b6b;
+  --destructive-foreground: #ffffff;
+  --border: #2a2a44;
+  --input: #2a2a44;
+  --ring: #6c5ce7;
+  --chart-1: #6c5ce7;
+  --chart-2: #00d4aa;
+  --chart-3: #a78bfa;
+  --chart-4: #ffd93d;
+  --chart-5: #ff6b6b;
+  --sidebar: #14141e;
+  --sidebar-foreground: #e8e8f0;
+  --sidebar-primary: #6c5ce7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #22223a;
+  --sidebar-accent-foreground: #e8e8f0;
+  --sidebar-border: #2a2a44;
+  --sidebar-ring: #6c5ce7;
+  --fog-green: #00d4aa;
+  --fog-red: #ff6b6b;
+  --fog-yellow: #ffd93d;
+  --fog-accent: #6c5ce7;
+  --fog-accent-light: #a78bfa;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}
+
+/* Fogwall custom utilities */
+@layer utilities {
+  .text-fog-gradient {
+    background: linear-gradient(135deg, #6c5ce7, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .bg-fog-glow {
+    box-shadow: 0 0 24px rgba(108, 92, 231, 0.25);
+  }
+
+  .bg-fog-card-glow {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  .bg-fog-hero {
+    background-image: var(--fog-hero-url);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  .animate-fog-pulse {
+    animation: fog-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-fog-spin {
+    animation: fog-spin 1s linear infinite;
+  }
+
+  .animate-fog-float {
+    animation: fog-float 3s ease-in-out infinite;
+  }
+}
+
+@keyframes fog-pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px currentColor;
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 16px currentColor;
+  }
+}
+
+@keyframes fog-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fog-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
